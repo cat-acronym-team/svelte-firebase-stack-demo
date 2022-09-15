@@ -17,8 +17,6 @@
   </ul>
 </form>
 
-<style>
-  form {
-    text-align: center;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+<style ref="stylesheet" href="../styles.css"></style>

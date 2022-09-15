@@ -1,0 +1,15 @@
+:root {
+  color-scheme: dark light;
+}
+
+* {
+  font-family: 'Roboto';
+}
+
+form {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}

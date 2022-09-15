@@ -8,7 +8,7 @@
     }
     // Assign the display var to name
     final = name;
-    name = ""
+    name = "";
     // Make a request to the cloud functions to store it within the database
     // const { ok } = await fetch("api-url", {
     //   method: "POST",
@@ -31,12 +31,6 @@
   <h1>Hello {final}</h1>
 {/if}
 
-<style>
-  form {
-    text-align: center;
-  }
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
 
-  h1 {
-    text-align: center;
-  }
-</style>
+<style rel="stylesheet" href="../styles.css"></style>
