@@ -1,11 +1,20 @@
 import { db } from "../../firebase";
-import { getFirestore, connectFirestoreEmulator, Firestore, getDocs } from "firebase/firestore";
+import { getFirestore, connectFirestoreEmulator, Firestore, getDocs, CollectionReference } from "firebase/firestore";
 import { collection, addDoc, getDoc } from "firebase/firestore";
 
 connectFirestoreEmulator(db, "localhost", 8080);
 
+export type UserDoc = {
+  /**
+   * The user's name.
+   */
+  name: string;
+};
+
+const usersCollection = collection(db, "users") as CollectionReference<UserDoc>;
+
 export async function addUser(user: string) {
-  const docRef = await addDoc(collection(db, "Users"), {
+  const docRef = await addDoc(usersCollection, {
     name: user,
   });
 
@@ -15,11 +24,11 @@ export async function addUser(user: string) {
 export async function getUsers() {
   const names: string[] = [];
 
-  const querySnapshot = await getDocs(collection(db, "Users"));
+  const querySnapshot = await getDocs(usersCollection);
   //Loops through each document in collection pulling from field name
   querySnapshot.forEach((doc) => {
-    const name: string = doc.get("name");
-    names.push(name);
+    const data: UserDoc = doc.data();
+    names.push(data.name);
   });
 
   return names;
