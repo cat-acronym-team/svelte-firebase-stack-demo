@@ -24,6 +24,4 @@
   <h1>Hello {final}</h1>
 {/if}
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-
 <style rel="stylesheet" href="../styles.css"></style>

@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+  import "../styles.css";
   import { page } from "$app/stores";
 
   //   Routes and their text
@@ -6,8 +7,12 @@
     { path: "/", text: "Home" },
     { path: "/hello", text: "Input Your Name" },
     { path: "/nameList", text: "Display Names" },
-  ];
+  ] as const;
 </script>
+
+<svelte:head>
+  <title>Demo</title>
+</svelte:head>
 
 <div class="links">
   <!-- Loop through each route -->
@@ -20,7 +25,18 @@
 </div>
 <slot />
 
-<style>
+<style global>
+  :root {
+    color-scheme: dark light;
+  }
+
+  * {
+    font-family: "Roboto";
+  }
+
+  h1 {
+    text-align: center;
+  }
   .links {
     width: 50%;
     margin: auto;
