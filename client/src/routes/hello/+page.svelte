@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { addUser } from "../nameList/firebaseFunctions";
+
   let name = "";
   let final = "";
   // Will show the data then make a request to the database with the name
@@ -8,8 +10,8 @@
     }
     // Assign the display var to name
     final = name;
-    name = ""
-    
+    name = "";
+    addUser(final);
   }
 </script>
 
