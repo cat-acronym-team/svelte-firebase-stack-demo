@@ -36,6 +36,7 @@
   h1 {
     text-align: center;
   }
+
   .links {
     width: 50%;
     margin: auto;
@@ -43,6 +44,7 @@
     justify-content: space-between;
     text-align: center;
   }
+  
   .links a {
     font-size: 1.2em;
   }
