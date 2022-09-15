@@ -3,8 +3,8 @@
 </script>
 
 <div class="links">
-  <a href="/hello.html">Input Your Name</a>
-  <a href="/nameList.html">Display Names</a>
+  <a href="/hello">Input Your Name</a>
+  <a href="/nameList">Display Names</a>
 </div>
 
 <style>
