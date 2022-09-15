@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { getUsers, names } from "./firebaseFunctions";
+  import { getUsers } from "./firebaseFunctions";
+
+  //Names from User collection
+  let names: string[] = [];
+  getUsers().then((members) => {
+    names = members;
+  });
 </script>
 
 <form>
