@@ -1,5 +1,4 @@
 <script lang="ts">
-  import "../styles.css";
   import { page } from "$app/stores";
 
   //   Routes and their text
