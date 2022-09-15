@@ -9,16 +9,7 @@
     // Assign the display var to name
     final = name;
     name = ""
-    // Make a request to the cloud functions to store it within the database
-    // const { ok } = await fetch("api-url", {
-    //   method: "POST",
-    //   body: JSON.stringify({ name: final }),
-    // });
-    // if (ok) {
-    //   console.log("Successfully Added Name!");
-    // } else {
-    //   console.log("Unsuccessfully Added Name!");
-    // }
+    
   }
 </script>
 
