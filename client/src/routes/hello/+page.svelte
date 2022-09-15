@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { addUser } from "../nameList/firebaseFunctions";
+
   let name = "";
   let final = "";
   // Will show the data then make a request to the database with the name
@@ -8,17 +10,8 @@
     }
     // Assign the display var to name
     final = name;
-    name = ""
-    // Make a request to the cloud functions to store it within the database
-    // const { ok } = await fetch("api-url", {
-    //   method: "POST",
-    //   body: JSON.stringify({ name: final }),
-    // });
-    // if (ok) {
-    //   console.log("Successfully Added Name!");
-    // } else {
-    //   console.log("Unsuccessfully Added Name!");
-    // }
+    name = "";
+    addUser(final);
   }
 </script>
 
