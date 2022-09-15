@@ -3,14 +3,12 @@
   let final = "";
   // Will show the data then make a request to the database with the name
   async function showAndSubmit(event: Event) {
-    const form = event.target as HTMLFormElement;
     if (name === "") {
       return;
     }
     // Assign the display var to name
     final = name;
-    // reset the form
-    form.reset();
+    name = ""
     // Make a request to the cloud functions to store it within the database
     // const { ok } = await fetch("api-url", {
     //   method: "POST",
