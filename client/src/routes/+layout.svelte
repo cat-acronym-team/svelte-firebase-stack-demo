@@ -13,7 +13,7 @@
   <title>Demo</title>
 </svelte:head>
 
-<div class="links">
+<nav class="links">
   <!-- Loop through each route -->
   <!-- If the current route equals itself then don't display its link -->
   {#each routes as route, index (index)}
@@ -21,8 +21,10 @@
       <a href={route.path}>{route.text}</a>
     {/if}
   {/each}
-</div>
-<slot />
+</nav>
+<main>
+  <slot />
+</main>
 
 <style global>
   :root {

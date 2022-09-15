@@ -16,12 +16,13 @@
 </script>
 
 <form on:submit|preventDefault={showAndSubmit}>
-  <input bind:value={name} name="userName" type="text" placeholder="Enter in your name!" />
+  <label for="userName">Enter your name!</label>
+  <input bind:value={name} id="userName" type="text" />
   <button type="submit">Submit</button>
 </form>
 
 {#if final !== ""}
-  <h1>Hello {final}</h1>
+  <output>Hello {final}</output>
 {/if}
 
 <style rel="stylesheet" href="../styles.css"></style>
