@@ -1,21 +1,20 @@
 <script lang="ts">
   let name = "";
-
-  // Will show the data then make a request to the database with the name  
+  let final = "";
+  // Will show the data then make a request to the database with the name
   async function showAndSubmit(event: Event) {
-
-    // get info from within the form
     const form = event.target as HTMLFormElement;
-    const formData = new FormData(form);
-    // assign name the value from the input 
-    const { userName } = Object.fromEntries(formData);
-    name = userName as string;
+    if (name === "") {
+      return;
+    }
+    // Assign the display var to name
+    final = name;
     // reset the form
     form.reset();
     // Make a request to the cloud functions to store it within the database
     // const { ok } = await fetch("api-url", {
     //   method: "POST",
-    //   body: JSON.stringify({ name }),
+    //   body: JSON.stringify({ name: final }),
     // });
     // if (ok) {
     //   console.log("Successfully Added Name!");
@@ -26,12 +25,12 @@
 </script>
 
 <form on:submit|preventDefault={showAndSubmit}>
-  <input name="userName" type="text" placeholder="Enter in your name!" />
+  <input bind:value={name} name="userName" type="text" placeholder="Enter in your name!" />
   <button type="submit">Submit</button>
 </form>
 
-{#if name !== ""}
-  <h1>Hello {name}</h1>
+{#if final !== ""}
+  <h1>Hello {final}</h1>
 {/if}
 
 <style>
