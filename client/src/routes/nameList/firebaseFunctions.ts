@@ -1,6 +1,6 @@
 import { db } from "../../firebase";
-import { getFirestore, connectFirestoreEmulator, Firestore, getDocs, CollectionReference } from "firebase/firestore";
-import { collection, addDoc, getDoc } from "firebase/firestore";
+import { connectFirestoreEmulator, getDocs, CollectionReference } from "firebase/firestore";
+import { collection, addDoc} from "firebase/firestore";
 
 connectFirestoreEmulator(db, "localhost", 8080);
 
@@ -34,8 +34,4 @@ export async function getUsers() {
   return names;
 }
 
-//Names from User collection
-export let names: string[] = [];
-getUsers().then((members) => {
-  names = members;
-});
+
