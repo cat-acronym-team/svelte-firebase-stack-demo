@@ -1,9 +1,10 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if
-          request.time < timestamp.date(2022, 10, 12);
+    match /users/{document=**} {
+    	allow create: 
+      		if request.resource.data.name is string 
+             && request.resource.data.keys().hasOnly(['name']);
     }
   }
 }
