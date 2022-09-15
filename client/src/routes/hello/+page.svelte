@@ -16,7 +16,7 @@
 </script>
 
 <form on:submit|preventDefault={showAndSubmit}>
-  <label for="userName">Enter your name!</label>
+  <label for="userName">Enter your name</label>
   <input bind:value={name} id="userName" type="text" />
   <button type="submit">Submit</button>
 </form>
@@ -25,4 +25,27 @@
   <output>Hello {final}</output>
 {/if}
 
-<style rel="stylesheet" href="../styles.css"></style>
+<style>
+  form {
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 240px;
+    place-content: center;
+    gap: 12px;
+  }
+
+  button {
+    justify-self: right;
+  }
+
+  input,
+  button {
+    padding: 4px 8px;
+  }
+
+  output {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+  }
+</style>

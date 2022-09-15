@@ -15,4 +15,17 @@
   {/each}
 </ul>
 
-<style ref="stylesheet" href="../styles.css"></style>
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    gap: 4px;
+  }
+</style>

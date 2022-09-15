@@ -13,7 +13,7 @@
   <title>Demo</title>
 </svelte:head>
 
-<nav class="links">
+<nav>
   <!-- Loop through each route -->
   <!-- If the current route equals itself then don't display its link -->
   {#each routes as route, index (index)}
@@ -35,19 +35,23 @@
     font-family: "Roboto";
   }
 
-  h1 {
-    text-align: center;
+  body {
+    margin: 0;
   }
 
-  .links {
-    width: 50%;
-    margin: auto;
+  nav {
     display: flex;
-    justify-content: space-between;
-    text-align: center;
+    justify-content: space-evenly;
+    padding: 12px;
   }
-  
-  .links a {
+
+  nav a {
     font-size: 1.2em;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 12px;
   }
 </style>
