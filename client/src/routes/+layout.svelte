@@ -26,16 +26,16 @@
   <slot />
 </main>
 
-<style global>
-  :root {
+<style>
+  :global(:root) {
     color-scheme: dark light;
   }
 
-  * {
+  :global(*) {
     font-family: "Roboto";
   }
 
-  body {
+  :global(body) {
     margin: 0;
   }
 
