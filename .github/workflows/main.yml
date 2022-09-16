@@ -1,0 +1,109 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Check Prettier
+        run: npm run prettier
+
+  lint-functions:
+    name: Lint Functions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Node Dependencies
+        run: npm --prefix functions ci
+
+      - name: Lint
+        run: npm --prefix functions run lint
+
+  build-functions:
+    name: Build Functions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Node Dependencies
+        run: npm --prefix functions ci
+
+      - name: Vite Build
+        run: npm --prefix functions run build
+
+      - name: Upload Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: compsci-class-scraper
+          path: dist
+
+  lint-client:
+    name: Lint Client
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Node Dependencies
+        run: npm --prefix client ci
+
+      - name: Lint
+        run: npm --prefix client run lint
+
+  build-client:
+    name: Build Client
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Node Dependencies
+        run: npm --prefix client ci
+
+      - name: Vite Build
+        run: npm --prefix client run build
+
+      - name: Upload Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: compsci-class-scraper
+          path: dist
