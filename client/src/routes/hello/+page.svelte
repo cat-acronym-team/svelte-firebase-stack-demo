@@ -4,7 +4,7 @@
   let name = "";
   let final = "";
   // Will show the data then make a request to the database with the name
-  async function showAndSubmit(event: Event) {
+  async function showAndSubmit() {
     if (name === "") {
       return;
     }
@@ -16,20 +16,36 @@
 </script>
 
 <form on:submit|preventDefault={showAndSubmit}>
-  <input bind:value={name} name="userName" type="text" placeholder="Enter in your name!" />
+  <label for="userName">Enter your name</label>
+  <input bind:value={name} id="userName" type="text" />
   <button type="submit">Submit</button>
 </form>
 
 {#if final !== ""}
-  <h1>Hello {final}</h1>
+  <output>Hello {final}</output>
 {/if}
 
 <style>
   form {
-    text-align: center;
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 240px;
+    place-content: center;
+    gap: 12px;
   }
 
-  h1 {
+  button {
+    justify-self: right;
+  }
+
+  input,
+  button {
+    padding: 4px 8px;
+  }
+
+  output {
+    display: block;
     text-align: center;
+    font-size: 24px;
   }
 </style>
