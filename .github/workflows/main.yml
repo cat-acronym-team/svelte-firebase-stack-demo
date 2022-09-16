@@ -107,3 +107,29 @@ jobs:
         with:
           name: compsci-class-scraper
           path: dist
+
+  playwright:
+    name: Playwright
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "adopt"
+          java-version: "11"
+
+      - name: Install Node Dependencies
+        run: npm ci
+          npm --prefix functions ci
+          npm --prefix client ci
+
+      - name: Test
+        run: npm --prefix client run test
