@@ -128,9 +128,11 @@ jobs:
 
       - name: Install Node Dependencies
         run: |
-          npm ci
           npm --prefix functions ci
           npm --prefix client ci
+
+      - name: Install firebase emulators
+        run: npm i -g firebase-tools
 
       - name: Install Playwright
         run: npx --prefix client playwright install --with-deps
