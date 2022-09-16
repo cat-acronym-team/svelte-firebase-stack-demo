@@ -132,5 +132,8 @@ jobs:
           npm --prefix functions ci
           npm --prefix client ci
 
+      - name: Install Playwright
+        run: npx --prefix client playwright install --with-deps
+
       - name: Test
         run: npm --prefix client run test
