@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getUsers } from "./firebaseFunctions";
 
-  //Names from User collection
+  // Names from User collection
   let names: string[] = [];
   getUsers().then((members) => {
     names = members;
