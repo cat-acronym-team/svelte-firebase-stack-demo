@@ -4,7 +4,7 @@
   let name = "";
   let final = "";
   // Will show the data then make a request to the database with the name
-  async function showAndSubmit(event: Event) {
+  async function showAndSubmit() {
     if (name === "") {
       return;
     }

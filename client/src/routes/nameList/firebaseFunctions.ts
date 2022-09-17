@@ -25,7 +25,7 @@ export async function getUsers() {
   const names: string[] = [];
 
   const querySnapshot = await getDocs(query(usersCollection, orderBy("timeCreated", "asc")));
-  //Loops through each document in collection pulling from field name
+  // Loops through each document in collection pulling from field name
   querySnapshot.forEach((doc) => {
     const data: UserDoc = doc.data();
     names.push(data.name);
