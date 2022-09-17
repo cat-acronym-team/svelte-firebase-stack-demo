@@ -57,14 +57,8 @@ jobs:
       - name: Install Node Dependencies
         run: npm --prefix functions ci
 
-      - name: Vite Build
+      - name: Build
         run: npm --prefix functions run build
-
-      - name: Upload Build
-        uses: actions/upload-artifact@v3
-        with:
-          name: compsci-class-scraper
-          path: dist
 
   lint-client:
     name: Lint Client
@@ -99,14 +93,8 @@ jobs:
       - name: Install Node Dependencies
         run: npm --prefix client ci
 
-      - name: Vite Build
+      - name: Build
         run: npm --prefix client run build
-
-      - name: Upload Build
-        uses: actions/upload-artifact@v3
-        with:
-          name: compsci-class-scraper
-          path: dist
 
   playwright:
     name: Playwright
