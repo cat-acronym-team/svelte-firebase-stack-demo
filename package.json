@@ -2,9 +2,11 @@
   "scripts": {
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
-    "emulators": "npm --prefix functions run build && npm --prefix client run build && firebase emulators:start"
+    "emulators": "npm --prefix functions run build && npm --prefix client run build:dev && firebase emulators:start --project stage",
+    "emulators:preview": "npm --prefix functions run build && npm --prefix client run build:test && firebase emulators:start --project stage"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.7.0"
   }
 }

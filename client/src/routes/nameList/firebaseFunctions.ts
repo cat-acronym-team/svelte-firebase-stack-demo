@@ -1,8 +1,6 @@
 import { db } from "../../firebase";
-import { connectFirestoreEmulator, query, getDocs, CollectionReference, orderBy } from "firebase/firestore";
+import { query, getDocs, CollectionReference, orderBy } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
-
-connectFirestoreEmulator(db, "localhost", 8080);
 
 export type UserDoc = {
   /**
