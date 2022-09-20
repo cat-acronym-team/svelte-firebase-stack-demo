@@ -36,10 +36,12 @@ jobs:
           node-version: 16
 
       - name: Install Node Dependencies
-        run: npm --prefix functions ci
+        working-directory: ./functions
+        run: npm ci
 
       - name: Lint
-        run: npm --prefix functions run lint
+        working-directory: ./functions
+        run: npm run lint
 
   build-functions:
     name: Build Functions
@@ -54,10 +56,12 @@ jobs:
           node-version: 16
 
       - name: Install Node Dependencies
-        run: npm --prefix functions ci
+        working-directory: ./functions
+        run: npm ci
 
       - name: Build
-        run: npm --prefix functions run build
+        working-directory: ./functions
+        run: npm run build
 
   lint-client:
     name: Lint Client
@@ -72,10 +76,12 @@ jobs:
           node-version: 16
 
       - name: Install Node Dependencies
-        run: npm --prefix client ci
+        working-directory: ./client
+        run: npm ci
 
       - name: Lint
-        run: npm --prefix client run lint
+        working-directory: ./client
+        run: npm run lint
 
   build-client:
     name: Build Client
@@ -90,10 +96,12 @@ jobs:
           node-version: 16
 
       - name: Install Node Dependencies
-        run: npm --prefix client ci
+        working-directory: ./client
+        run: npm ci
 
       - name: Build
-        run: npm --prefix client run build:prod
+        working-directory: ./client
+        run: npm run build:prod
 
   playwright:
     name: Playwright
@@ -113,19 +121,24 @@ jobs:
           distribution: "adopt"
           java-version: "11"
 
-      - name: Install Node Dependencies
-        run: |
-          npm --prefix functions ci
-          npm --prefix client ci
+      - name: Install Node Dependencies in Client
+        working-directory: ./client
+        run: npm ci
+
+      - name: Install Node Dependencies in Function
+        working-directory: ./function
+        run: npm ci
 
       - name: Install firebase emulators
         run: npm i -g firebase-tools
 
       - name: Install Playwright
-        run: npx --prefix client playwright install --with-deps
+        working-directory: ./client
+        run: npx playwright install --with-deps
 
       - name: Test
-        run: npm --prefix client run test
+        working-directory: ./client
+        run: npm run test
 
   deploy-staging:
     name: Deploy to Staging
@@ -141,16 +154,21 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Node Dependencies
-        run: |
-          npm --prefix functions ci
-          npm --prefix client ci
+      - name: Install Node Dependencies in Client
+        working-directory: ./client
+        run: npm ci
+
+      - name: Install Node Dependencies in Function
+        working-directory: ./function
+        run: npm ci
 
       - name: Build Functions
-        run: npm --prefix functions run build
+        working-directory: ./functions
+        run: npm run build
 
       - name: Build Client
-        run: npm --prefix client run build:stage
+        working-directory: ./client
+        run: npm run build:stage
 
       - name: Install firebase
         run: npm i -g firebase-tools
@@ -174,16 +192,21 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Node Dependencies
-        run: |
-          npm --prefix functions ci
-          npm --prefix client ci
+      - name: Install Node Dependencies in Client
+        working-directory: ./client
+        run: npm ci
+
+      - name: Install Node Dependencies in Function
+        working-directory: ./function
+        run: npm ci
 
       - name: Build Functions
-        run: npm --prefix functions run build
+        working-directory: ./functions
+        run: npm run build
 
       - name: Build Client
-        run: npm --prefix client run build:prod
+        working-directory: ./client
+        run: npm run build:stage
 
       - name: Install firebase
         run: npm i -g firebase-tools
