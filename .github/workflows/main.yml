@@ -156,7 +156,7 @@ jobs:
         run: npm i -g firebase-tools
 
       - name: Deploy
-        run: firebase deploy --project stage --message \"${{ github.event.head_commit.message }}\"
+        run: firebase deploy --project stage --message "${{ github.event.head_commit.message }}"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
@@ -189,6 +189,6 @@ jobs:
         run: npm i -g firebase-tools
 
       - name: Deploy
-        run: firebase deploy --project prod --message \"${{ github.event.head_commit.message }}\"
+        run: firebase deploy --project prod --message "${{ github.event.head_commit.message }}"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
