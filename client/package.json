@@ -13,7 +13,8 @@
     "test": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepare": "svelte-kit sync"
   },
   "devDependencies": {
     "@playwright/test": "^1.25.0",
