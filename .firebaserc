@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "svelte-firebase-stack-demo-dev"
+    "default": "svelte-firebase-stack-demo-dev",
+    "stage": "svelte-firebase-stack-demo-dev",
+    "prod": "svelte-firebase-stack-demo"
   }
 }
